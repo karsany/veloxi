@@ -30,10 +30,9 @@ public class XMLParser {
         if (str == null) {
             return true;
         }
-
-        int strLen = str.length();
+        int strLen = str.trim().length();
         if (strLen == 0) {
-
+            return true;
         }
         for (int i = 0; i < strLen; i++) {
             if (!Character.isWhitespace(str.charAt(i))) {
