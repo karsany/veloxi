@@ -17,10 +17,8 @@ public class VelocityOutput {
     private VelocityEngine velocityEngine = new VelocityEngine();
     private VelocityContext context = new VelocityContext();
     private Template template;
-    private File templateFile;
 
     public VelocityOutput(File templateFile) {
-        this.templateFile = templateFile;
         velocityEngine.setProperty("runtime.log.logsystem.class", "org.apache.velocity.runtime.log.NullLogSystem");
         try {
             velocityEngine.setProperty("resource.loader", "file");

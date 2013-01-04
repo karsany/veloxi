@@ -20,19 +20,23 @@ import java.util.*;
  */
 public class XMLParser {
 
-    File xmlFile;
+    private File xmlFile;
 
     public XMLParser(File xmlFile) {
         this.xmlFile = xmlFile;
     }
 
     private boolean isBlank(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
+        if (str == null) {
             return true;
         }
+
+        int strLen = str.length();
+        if (strLen == 0) {
+
+        }
         for (int i = 0; i < strLen; i++) {
-            if ((Character.isWhitespace(str.charAt(i)) == false)) {
+            if (!Character.isWhitespace(str.charAt(i))) {
                 return false;
             }
         }

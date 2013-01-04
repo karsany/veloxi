@@ -2,10 +2,7 @@ package hu.karsany.veloxi;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * User: fkarsany
@@ -14,8 +11,8 @@ import java.util.Map;
  */
 public class MapOutput {
 
-    Map<String, Object> map;
-    LinkedList<String> stack;
+    private Map<String, Object> map;
+    private LinkedList<String> stack;
 
     public MapOutput(Map<String, Object> map) {
         this.map = map;
@@ -30,7 +27,7 @@ public class MapOutput {
             printList((List<Object>) o);
         } else if (o instanceof String) {
 
-            LinkedList<String> rev = (LinkedList<String>) stack.clone();
+            LinkedList<String> rev = (LinkedList<String>) stack;
             Collections.reverse(rev);
 
             System.out.println(StringUtils.join(rev, ".") + " = " + o);

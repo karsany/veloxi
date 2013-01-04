@@ -10,7 +10,11 @@ import java.util.Map;
 /**
  * Hello world!
  */
-public class App {
+public final class App {
+
+    private App() {
+    }
+
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
         File xmlFile = new File(args[0]);
 
