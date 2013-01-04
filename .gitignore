@@ -1,6 +1,8 @@
 target/
 nbactions.xml
 nb-configuration.xml
+example/*.java
+example/*.sql
 *.iml
 .idea/
 #ignore thumbnails created by windows

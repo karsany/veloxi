@@ -1,0 +1,9 @@
+## From XmlGen 
+CREATE TABLE $table.name
+(
+	#foreach ( $column in $table.column )
+	#if ($velocityCount != 1) , #end
+  		$column.name $column.type#if ($column.size)($column.size)#end
+  		
+	#end
+)

@@ -1,0 +1,6 @@
+<table name="EMPLOYEE">
+	<column javaType="int" name="ID" type="INTEGER"></column>
+	<column javaType="String" name="FIRSTNAME" size="256" type="VARCHAR2"></column>
+	<column javaType="String" name="LASTNAME" size="256" type="VARCHAR2"></column>
+	<column javaType="int" name="AGE" type="INTEGER"></column>
+</table>

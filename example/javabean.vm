@@ -1,0 +1,25 @@
+## From XmlGen 
+package test;
+
+#set( $classNname = "$table.name.substring(0,1).toUpperCase()$table.name.substring(1).toLowerCase()" )
+public class $classNname {
+
+    #foreach ( $column in $table.column )
+	#set( $name = $column.name.toLowerCase() )
+	#set( $Name = "$column.name.substring(0,1).toUpperCase()$column.name.substring(1).toLowerCase()" )	 
+	  private $column.javaType ${name};
+	#end
+	
+	#foreach ( $column in $table.column )
+	#set( $name = $column.name.toLowerCase() )
+	#set( $Name = "$column.name.substring(0,1).toUpperCase()$column.name.substring(1).toLowerCase()" )
+	 
+	  public $column.javaType get${Name}(){
+          return this.${name};
+       }
+
+       public void set${Name}($column.javaType ${name}){
+           this.${name} = ${name};
+        }
+	#end
+}
