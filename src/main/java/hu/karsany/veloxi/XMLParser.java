@@ -62,14 +62,19 @@ public class XMLParser {
         retv.putAll(parseAttributes(documentElement));
         for (String tag : tags) {
             NodeList elements = documentElement.getElementsByTagName(tag);
-            if (elements.getLength() == 1) {
+            if (elements.getLength() == 1 && !tag.toLowerCase().endsWith("s")) {
                 if (isBlank(elements.item(0).getTextContent())) {
                     retv.put(tag, parseXml((Element) elements.item(0)));
                 } else {
                     retv.put(tag, elements.item(0).getTextContent());
                 }
             } else {
-                retv.put(tag, parseList((elements)));
+                String cTag = tag;
+                if (cTag.toLowerCase().endsWith("s")) {
+                    int len = cTag.length();
+                    cTag = cTag.substring(0, len - 1);
+                }
+                retv.put(cTag, parseList((elements)));
             }
         }
         return retv;

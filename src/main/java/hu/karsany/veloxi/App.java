@@ -16,16 +16,17 @@ public final class App {
     }
 
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
-        File xmlFile = new File(args[0]);
+        String xmlFileName = args[0];
+        String velocityTemplateFileName = new File(args[1]).getAbsolutePath();
+
+        File xmlFile = new File(xmlFileName);
 
         XMLParser parser = new XMLParser(xmlFile);
 
         Map<String, Object> map = parser.parse();
-        VelocityOutput output = new VelocityOutput(new File(new File(args[1]).getAbsolutePath()));
-
+        VelocityOutput output = new VelocityOutput(new File(velocityTemplateFileName));
 
         // new MapOutput(map).print();
-
 
         for (Map.Entry e : map.entrySet()) {
             output.put((String) e.getKey(), e.getValue());
