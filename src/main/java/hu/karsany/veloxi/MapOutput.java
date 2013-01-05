@@ -2,7 +2,10 @@ package hu.karsany.veloxi;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * User: fkarsany
@@ -27,7 +30,7 @@ public class MapOutput {
             printList((List<Object>) o);
         } else if (o instanceof String) {
 
-            LinkedList<String> rev = (LinkedList<String>) stack;
+            LinkedList<String> rev = (LinkedList<String>) stack.clone();
             Collections.reverse(rev);
 
             System.out.println(StringUtils.join(rev, ".") + " = " + o);
