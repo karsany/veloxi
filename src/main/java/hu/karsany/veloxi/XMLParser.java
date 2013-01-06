@@ -63,7 +63,7 @@ public class XMLParser {
         for (String tag : tags) {
             NodeList elements = documentElement.getElementsByTagName(tag);
             if (elements.getLength() == 1 && !tag.toLowerCase().endsWith("s")) {
-                if (isBlank(elements.item(0).getTextContent())) {
+                if (elements.item(0).hasChildNodes() && elements.item(0).getChildNodes().getLength() != 1) {
                     retv.put(tag, parseXml((Element) elements.item(0)));
                 } else {
                     retv.put(tag, elements.item(0).getTextContent());

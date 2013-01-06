@@ -26,7 +26,7 @@ public final class App {
         Map<String, Object> map = parser.parse();
         VelocityOutput output = new VelocityOutput(new File(velocityTemplateFileName));
 
-        // new MapOutput(map).print();
+        //new MapOutput(map).print();
 
         for (Map.Entry e : map.entrySet()) {
             output.put((String) e.getKey(), e.getValue());
