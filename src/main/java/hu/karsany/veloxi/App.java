@@ -16,6 +16,12 @@ public final class App {
     }
 
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+
+        if (args.length != 2) {
+            System.err.println("usage: veloxi input.xml template.vm > output.ext");
+            System.exit(1);
+        }
+
         String xmlFileName = args[0];
         String velocityTemplateFileName = new File(args[1]).getAbsolutePath();
 
