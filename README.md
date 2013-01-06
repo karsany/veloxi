@@ -17,7 +17,7 @@ It is an alternative to [XmlGen], but without using Ant tasks.
 You should set the JAVA_HOME and VELOXI_HOME environment variables,
 and add Veloxi binary directory to the path. Then you can run:
 
-    veloxi VKRM_SAPIF_MODULES.xml template/mapping-table.vm output/VKRM_SAPIF_MODULES.sql
+    veloxi input.xml template.vm outputfile.ext
 	
 Other option is to set the JAVA_HOME and VELOXI_HOME in the veloxi.bat
 file in the Veloxi binary directory, then just add the Veloxi dir to
