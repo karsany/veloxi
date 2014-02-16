@@ -1,8 +1,4 @@
 call mvn clean
-call mvn deploy
-cd target
-ren veloxi*.jar veloxi.jar
-cd ..
+call mvn package
 copy src\other\veloxi.bat target
 call mvn assembly:assembly
-

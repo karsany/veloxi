@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import org.apache.commons.io.IOUtils;
 import java.util.*;
 
 /**
@@ -21,11 +22,16 @@ import java.util.*;
 public class XMLParser {
 
     private File xmlFile;
+	private String xml;
 
     public XMLParser(File xmlFile) {
         this.xmlFile = xmlFile;
     }
 
+    public XMLParser(String xml) {
+        this.xml = xml;
+    }	
+	
     private boolean isBlank(String str) {
         if (str == null) {
             return true;
@@ -45,7 +51,12 @@ public class XMLParser {
     public Map<String, Object> parse() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(xmlFile);
+		Document doc;
+		if(xmlFile != null) {
+			doc = dBuilder.parse(xmlFile);
+		} else {
+			doc = dBuilder.parse(IOUtils.toInputStream(xml));
+		}
         doc.getDocumentElement().normalize();
         Map<String, Object> retv = new HashMap<String, Object>();
         retv.put(doc.getDocumentElement().getNodeName(), parseXml(doc.getDocumentElement()));
